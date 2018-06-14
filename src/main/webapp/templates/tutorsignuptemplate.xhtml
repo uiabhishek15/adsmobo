@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+
+<f:view contentType="text/html">
+	<f:loadBundle var="msg" basename="pageConstants_en" />
+	<f:facet name="postinit">
+		<link type="text/css" rel="stylesheet"
+			href="/app/javax.faces.resource/style.css.xhtml?ln=css" />
+	</f:facet>
+	<ui:insert name="metadata"/>
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible"
+				content="Edge,IE10,IE9,IE8,IE7,IE5" />
+			<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+			<meta name="viewport" content="width=device-width, user-scalable=no" />
+			<meta http-equiv="Page-Enter"
+				content="progid:DXImageTransform.Microsoft.Fade(Duration=0)" />
+			<meta http-equiv="Page-Exit"
+				content="progid:DXImageTransform.Microsoft.Fade(Duration=0)" />
+		</f:facet>
+		<f:facet name="middle">
+			<h:outputScript library="default"
+				name="js/prime/PrimeFacesMessages.js" />
+			<h:outputScript library="default" name="js/spytutors-common.js" />
+			<h:outputStylesheet library="default" name="css/spytutors-styles.css" />	
+		<link href='https://fonts.googleapis.com/css?family=Nunito:700' rel='stylesheet' type='text/css'/>
+		<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'/>
+		<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'/>
+		<link href='https://fonts.googleapis.com/css?family=Freckle+Face' rel='stylesheet' type='text/css'/>
+		</f:facet>
+	</h:head>
+	<h:body>
+		<h:form id="tutorsignuplayoutform" prependId="false">
+			<p:layout widgetVar="tutorsignuplayout" stateCookie="true"
+				fullPage="true">
+				<p:layoutUnit position="north" styleClass="hiddenBorder">
+					<p:layout>
+						<p:layoutUnit position="center" styleClass="hiddenBorder">
+							<ui:insert name="headercontent"></ui:insert>
+						</p:layoutUnit>
+						<p:layoutUnit position="west" size="250" styleClass="hiddenBorder"></p:layoutUnit>
+						<p:layoutUnit position="east" size="250" styleClass="hiddenBorder"></p:layoutUnit>
+					</p:layout>
+
+				</p:layoutUnit>
+				<p:layoutUnit id="centerlayout" position="center"
+					styleClass="hiddenBorder noScrolllayoutUnit" gutter="0"
+					styleHeader="background:none; border:none; padding:0;">
+					<p:layout>
+						<p:layoutUnit position="west" size="200" styleClass="hiddenBorder">
+							<ui:insert name="loginlayoutcontent"></ui:insert>
+						</p:layoutUnit>
+						<p:layoutUnit position="center" styleClass="hiddenBorder">
+							<p:row>
+								<ui:insert name="tutorsignupbodycontent"></ui:insert>
+							</p:row>
+						</p:layoutUnit>
+					</p:layout>
+				</p:layoutUnit>>
+				<p:layoutUnit id="advertisementlayout" position="west" size="250"
+					styleClass="hiddenBorder" gutter="0">
+					<ui:insert name="advertisementcontent"></ui:insert>
+				</p:layoutUnit>
+				<p:layoutUnit id="messagingcontentlayout" position="east" size="250"
+					styleClass="hiddenBorder" gutter="0">
+					<ui:insert name="messagingcontent"></ui:insert>
+				</p:layoutUnit>
+				<p:layoutUnit id="footerlayout" position="south" size="50"
+					styleClass="hiddenBorder" gutter="0">
+					<ui:insert name="footercontent"></ui:insert>
+				</p:layoutUnit>
+			</p:layout>
+		</h:form>
+	</h:body>
+
+</f:view>
+</html>

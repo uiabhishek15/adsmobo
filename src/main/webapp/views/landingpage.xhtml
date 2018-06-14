@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:common="http://xmlns.jcp.org/jsf/composite/common">
+
+<h:body>
+	<h:form styleClass="loginformstyle">
+		<p:outputPanel id="landingpageoutputpanel"
+			styleClass="width100percent">
+			<h:panelGrid id="tutorlistformpanelgrid">
+				<p:row>
+					<c:choose>
+						<c:when
+							test="#{fn:length(tutorController.tutorSearch.fetchedTutorList) gt 0 and tutorController.type eq 'tutors'}">
+							<ui:include src="/views/tutor/tutorlistform.xhtml"></ui:include>
+						</c:when>
+						<c:when test="#{tutorController.type eq 'tutor'}">
+							<ui:include src="/views/tutor/tutorindividualform.xhtml"></ui:include>
+						</c:when>
+						<c:otherwise>
+						<c:choose>
+							 <c:when
+								test="#{fn:length(studentController.studentSearch.fetchedStudentList) gt 0 and studentController.type eq 'students'}">
+								<ui:include src="/views/student/studentlistform.xhtml"></ui:include>
+							</c:when>
+							<c:when test="#{studentController.type eq 'student'}">
+								<ui:include src="/views/student/studentindividualform.xhtml"></ui:include>
+							</c:when> 
+							</c:choose>
+						</c:otherwise>
+					</c:choose>
+				</p:row>
+				<p:row>
+					<h:outputText value="Future tutors" />
+				</p:row>
+			</h:panelGrid>
+		</p:outputPanel>
+	</h:form>
+</h:body>
+</html>

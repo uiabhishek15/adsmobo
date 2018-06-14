@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+	<composite:interface>
+		<composite:attribute name="usernameid"></composite:attribute>
+		<composite:attribute name="passwordid"></composite:attribute>
+	</composite:interface>
+
+	<composite:implementation>
+		<p:outputPanel>
+			<p:panel style="background-color: #F0F8FF !important;" styleClass="width100percent">
+				<h:panelGrid>
+					<p:row>
+						<center>
+							<p:graphicImage library="default" name="images/userlogin.png" />
+						</center>
+
+					</p:row>
+					<div style="height: 8px;" />
+					<p:row>
+						<p:inputText id="#{cc.attrs.usernameid}"
+							value="#{loginController.userlogin.username}"							
+							styleClass="inputtextstyle inputtextfieldstyle" />
+						<b><p:watermark for="#{cc.attrs.usernameid}"
+								value="Email or UserName" /></b>
+					</p:row>
+					<div style="height: 8px;" />
+					<p:row>
+						<p:password id="#{cc.attrs.passwordid}"
+							value="#{loginController.userlogin.password}"						
+							styleClass="inputtextstyle passwordtextfieldstyle">
+						</p:password>
+						<p:watermark for="#{cc.attrs.passwordid}" value="Password"></p:watermark>
+					</p:row>
+					<div style="height: 6px;" />
+					<p:row>
+						<h:panelGrid columns="3">
+							<h:selectBooleanCheckbox />
+							<p:spacer width="8" height="0" />
+							<h:outputText value="Remember me" />
+						</h:panelGrid>
+					</p:row>
+					<div style="height: 2px;" />
+					<p:row>
+						<p:commandButton value="LogIn" styleClass="loginformbtnstyle" />
+					</p:row>
+					<div style="height: 4px;" />
+					<p:row>
+						<center><h4><p:commandLink value="Forgot Password?"
+								style="color:#FF0000 !important;font-family: 'Courgette', cursive;">
+							</p:commandLink></h4></center>
+					</p:row>
+				</h:panelGrid>
+			</p:panel>
+
+		</p:outputPanel>
+
+
+	</composite:implementation>
+
+
+</ui:component>

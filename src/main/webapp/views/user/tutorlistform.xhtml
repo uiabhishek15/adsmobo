@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:common="http://xmlns.jcp.org/jsf/composite/common">
+
+
+<h:body>
+	<div class="Container100 NoPadding Responsive50"
+		style="margin: 0 0 0 150px;">
+		<div class="Container100">
+			<div class="Card Flex FlexWrap">
+				<p:outputPanel id="tutorlistoutputpanel"
+					styleClass="width100percent">
+					<p:dataTable id="tutorlistdatatable" var="fetchedTutor"
+						rowKey="#{fetchedTutor.id}"
+						selection="#{tutorController.tutorSearch.selectedTutor}"
+						selectionMode="single"
+						value="#{tutorController.tutorSearch.fetchedTutorList}" rows="10"
+						paginator="true">
+						<p:column>
+							<p:commandLink
+								action="#{tutorController.updateTutorCommandLink(fetchedTutor,'tutor')}"
+								update="@([id$=landingpageoutputpanel])" ajax="true">
+								<b><h:outputText value="#{fetchedTutor.tutor.userName}" /></b>
+								<br />
+								<b><h:outputText
+										value="#{fetchedTutor.qualification.selectedQualification}" /></b>
+							</p:commandLink>
+						</p:column>
+						<p:separator />
+						<p:ajax event="rowSelect"
+							listener="#{tutorController.updateTutorType('tutor')}"
+							update="@([id$=landingpageoutputpanel])" />
+					</p:dataTable>
+				</p:outputPanel>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

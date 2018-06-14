@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:common="http://xmlns.jcp.org/jsf/composite/common">
+
+<p:outputPanel>
+	<h:panelGrid>
+		<p:row>
+			<b:inputText rendered="false" />
+			<common:loginform usernameid="landingpageusername"
+				passwordid="landingpagepassword" />
+		</p:row>
+		<p:spacer width="0" height="20" />
+		<p:row>
+			<common:tutorsearch tutorsearchinputtextid="landingpagetutorsearch" />
+		</p:row>
+		<p:spacer width="0" height="20" />
+		<p:row>
+			<common:studentsearchbycity studentsearchinputtextid="landingpagestudentsearch" />
+		</p:row> 
+	</h:panelGrid>
+</p:outputPanel>
+</html>

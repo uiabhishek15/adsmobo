@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<p:outputPanel id="availabledayandtimeoutputpanel">
+		<p:row>
+			<ui:repeat var="availableDayAndTime"
+				value="#{tutorSignupController.tutorSignup.availableDayAndTimeList}">
+				<p:row>
+					<h:panelGrid columns="10">
+						<p:column>
+							<h:selectOneMenu id="availableDayAndTimeDayMenu"
+								value="#{availableDayAndTime.day}"
+								style="width:45px;height:25px;">
+								<f:selectItem itemLabel="Day" itemValue="#{null}" />
+								<f:selectItem itemLabel="Mon" itemValue="Mon" />
+								<f:selectItem itemLabel="Tue" itemValue="Tue" />
+								<f:selectItem itemLabel="Wed" itemValue="Wed" />
+								<f:selectItem itemLabel="Thu" itemValue="Thu" />
+								<f:selectItem itemLabel="Fri" itemValue="Fri" />
+								<f:selectItem itemLabel="Sat" itemValue="Sat" />
+								<f:selectItem itemLabel="Sun" itemValue="Sun" />
+								<p:ajax event="change" process="@this" global="false" />
+							</h:selectOneMenu>
+						</p:column>
+						<p:column>
+							<!-- <p:spacer width="5" height="0" /> -->
+						</p:column>
+						<p:column>
+							<h:selectOneMenu id="availableDayAndTimeHourOneMenu"
+								value="#{availableDayAndTime.hour}"
+								style="width:50px;height:25px;">
+								<f:selectItem itemLabel="Hour" itemValue="#{null}" />
+								<f:selectItem itemLabel="12" itemValue="12" />
+								<f:selectItem itemLabel="11" itemValue="11" />
+								<f:selectItem itemLabel="10" itemValue="10" />
+								<f:selectItem itemLabel="09" itemValue="09" />
+								<f:selectItem itemLabel="08" itemValue="08" />
+								<f:selectItem itemLabel="07" itemValue="07" />
+								<f:selectItem itemLabel="06" itemValue="06" />
+								<f:selectItem itemLabel="05" itemValue="05" />
+								<f:selectItem itemLabel="04" itemValue="04" />
+								<f:selectItem itemLabel="03" itemValue="03" />
+								<f:selectItem itemLabel="02" itemValue="02" />
+								<f:selectItem itemLabel="01" itemValue="01" />
+								<p:ajax event="change" process="@this" global="false" />
+							</h:selectOneMenu>
+						</p:column>
+						<p:column>
+							<!-- <p:spacer width="5" height="0" /> -->
+						</p:column>
+						<p:column>
+							<h:selectOneMenu id="availableDayAndTimeMinuteOneMenu"
+								value="#{availableDayAndTime.minute}"
+								style="width:40px;height:25px;">
+								<f:selectItem itemLabel="Min" itemValue="#{null}" />
+								<f:selectItem itemLabel="00" itemValue="00" />
+								<f:selectItem itemLabel="05" itemValue="05" />
+								<f:selectItem itemLabel="10" itemValue="10" />
+								<f:selectItem itemLabel="15" itemValue="15" />
+								<f:selectItem itemLabel="20" itemValue="20" />
+								<f:selectItem itemLabel="25" itemValue="25" />
+								<f:selectItem itemLabel="30" itemValue="30" />
+								<f:selectItem itemLabel="35" itemValue="35" />
+								<f:selectItem itemLabel="40" itemValue="40" />
+								<f:selectItem itemLabel="45" itemValue="45" />
+								<f:selectItem itemLabel="50" itemValue="50" />
+								<f:selectItem itemLabel="55" itemValue="55" />
+								<p:ajax event="change" process="@this" global="false" />
+							</h:selectOneMenu>
+						</p:column>
+						<p:column>
+							<!-- <p:spacer width="5" height="0" /> -->
+						</p:column>
+						<p:column>
+							<h:selectOneMenu id="availableDayAndTimeMeridianOneMenu"
+								value="#{availableDayAndTime.meridian}"
+								style="width:40px;height:25px;">
+								<f:selectItem itemLabel="AM" itemValue="AM" />
+								<f:selectItem itemLabel="PM" itemValue="PM" />
+								<p:ajax event="change" process="@this" global="false" />
+							</h:selectOneMenu>
+						</p:column>
+						<p:column>
+							<!-- <p:spacer width="2" height="0" /> -->
+						</p:column>
+						<p:column>
+							<p:commandLink id="addavailabledayandtimebtn"
+								action="#{tutorSignupController.addAvailableDayAndTime(tutorSignupController.tutorSignup)}"
+								process="@this,addavailabledayandtimebtn" partialSubmit="true"
+								update="availabledayandtimeoutputpanel" global="false">
+								<p:graphicImage library="default" name="images/plus.gif" />
+								</p:commandLink>
+							<!-- <p:commandButton id="addavailabledayandtimebtn"
+								action="#{tutorSignupController.addAvailableDayAndTime(tutorSignupController.tutorSignup)}"
+								process="@this,addavailabledayandtimebtn" partialSubmit="true"
+								update="availabledayandtimeoutputpanel"
+								 global="false"
+								 value="+"
+								styleClass="facommandbuttonstyle"/> -->
+
+							<pe:tooltip for="addavailabledayandtimebtn"
+								value="Add another available day and time" />
+							<pe:tooltip for="addavailabledayandtimebtn"
+								value="Maximum limit reached to add new Available day and time.Cannot add new Available day and time from now."
+								rendered="#{tutorSignupController.tutorSignup.showAddAvailabilityDayAndTimeAlertTooltip}" />
+						</p:column>
+						<p:column>
+						<p:commandLink id="removeavailabledayandtimebtn"
+								action="#{tutorSignupController.removeAvailableDayAndTime(tutorSignupController.tutorSignup,availableDayAndTime)}"
+								process="@this,removeavailabledayandtimebtn" partialSubmit="true"
+								update="availabledayandtimeoutputpanel" global="false">
+								<p:graphicImage library="default" name="images/minus.gif" />
+								</p:commandLink>
+							<!-- <p:commandButton id="removeavailabledayandtimebtn"
+								action="#{tutorSignupController.removeAvailableDayAndTime(tutorSignupController.tutorSignup,availableDayAndTime)}"
+								process="@this,removeavailabledayandtimebtn"
+								partialSubmit="true" update="availabledayandtimeoutputpanel"
+								value="-" global="false" styleClass="facommandbuttonstyle" /> -->
+							<pe:tooltip for="removeavailabledayandtimebtn"
+								value="Remove current available day and time" />
+							<pe:tooltip for="removeavailabledayandtimebtn"
+								value="Cannot Remove current avaialble day and time.Atleast one Available day and time should be present for the student to select the tutor"
+								rendered="#{tutorSignupController.tutorSignup.showRemoveAvailabilityDayAndTimeAlertTooltip}" />
+						</p:column>
+					</h:panelGrid>
+				</p:row>
+			</ui:repeat>
+		</p:row>
+	</p:outputPanel>
+</h:body>
+</html>

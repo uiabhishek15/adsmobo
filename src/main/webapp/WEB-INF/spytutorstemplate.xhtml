@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<f:loadBundle var="msg" basename="pageConstants_en" />
+	<f:facet name="postinit">
+		<link type="text/css" rel="stylesheet"
+			href="/app/javax.faces.resource/style.css.xhtml?ln=css" />
+	</f:facet>
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<meta name="viewport"
+				content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+			<meta name="apple-mobile-web-app-capable" content="yes" />
+		</f:facet>
+		<title>AdsMobo -Share &amp; Earn</title>
+		<h:outputScript library="default"
+			name="js/prime/PrimeFacesMessages.js" />
+		<h:outputScript library="default" name="js/spytutors-common.js" />
+		<h:outputScript library="default" name="js/history.js" />
+		<h:outputScript name="js/equalize.js" library="atlas-layout" />
+		<h:outputScript name="js/layout.js" library="atlas-layout" />
+
+		<ui:insert name="head" />
+	</h:head>
+
+	<h:body styleClass="LeadenTopbar">
+		<h:form id="form" prependId="false">
+			<div>
+				<ui:insert name="header">
+				</ui:insert>
+			</div>
+
+
+			<ui:include src="topbar.xhtml" />
+
+			<!--	LAYOUT MENU COVER-->
+			<ui:include src="userlayoutmenu.xhtml" />
+
+			<div id="layout-portlets-cover" class="Flex FlexWrap">
+				<ui:insert name="content">
+				</ui:insert>
+			</div>
+
+			<ui:include src="footer.xhtml" />
+
+			<p:ajaxStatus
+				style="width:40px; height:40px; position:fixed; right:30px; bottom:30px; z-index:999999;">
+				<f:facet name="start">
+					<i class="fa fa-circle-o-notch fa-spin Green Fs40"></i>
+				</f:facet>
+
+				<f:facet name="complete">
+					<h:outputText value="" />
+				</f:facet>
+			</p:ajaxStatus>
+
+			<h:outputStylesheet name="css/core-layout.css" library="atlas-layout" />
+			<h:outputStylesheet name="css/animate.css" library="atlas-layout" />
+			<h:outputStylesheet name="css/font-awesome.css"
+				library="atlas-layout" />
+			<h:outputStylesheet name="css/atlas-font.css" library="atlas-layout" />
+			<h:outputStylesheet name="css/atlas-layout.css"
+				library="atlas-layout" />
+			<!-- <h:outputStylesheet library="default" name="css/spytutors-styles.css" /> -->
+			<h:outputStylesheet name="theme.css" library="primefaces-atlas" />
+			<h:outputStylesheet library="default" name="css/application.css" />
+			<h:outputStylesheet name="theme.css" library="primefaces-atlas" />
+			<link href='https://fonts.googleapis.com/css?family=Courgette'
+				rel='stylesheet' type='text/css' />
+			<h:outputStylesheet name="theme.css" library="primefaces-atlas" />
+			<style type="text/css">
+.ui-steps .ui-steps-item {
+	width: 24%;
+}
+
+.ui-state-highlight {
+	text-shadow: none !important;
+}
+
+.ui-steps.custom {
+	margin-bottom: 30px;
+}
+
+.ui-steps.custom .ui-steps-item .ui-menuitem-link {
+	height: 10px;
+	padding: 0 1em;
+}
+
+.ui-steps.custom .ui-steps-item .ui-steps-number {
+	background-color: #0081c2;
+	color: #FFFFFF;
+	display: inline-block;
+	width: 30px;
+	border-radius: 10px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+.ui-steps.custom .ui-steps-item.ui-state-highlight .ui-steps-title {
+	color: #555;
+}
+</style>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

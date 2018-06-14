@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<h:body>
+
+	<div class="Card TexAlCenter">
+		<h2 class="CardBigTopic">Sign Up</h2>
+		<div class="EmptyBox20"></div>
+		<p:panelGrid columns="4"
+			columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+			layout="grid" styleClass="ui-panelgrid-blank MarLeft30"
+			style="border:0px none; background-color:transparent;">
+			<p:outputLabel for="name" value="FullName *" />
+			<p:inputText id="name" styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.fullname}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'username','name')}"
+					update="nameInfoFacesMsg" />
+			</p:inputText>
+			<p:spacer width="20px;" />
+			<p:message for="name" id="nameInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+
+			<p:outputLabel for="email" value="Email *" />
+			<p:inputText id="email" styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.email}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'email','email')}"
+					update="emailInfoFacesMsg" />
+			</p:inputText>
+			<p:spacer width="20px;" />
+			<p:message for="email" id="emailInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+
+			<p:outputLabel for="password" value="Password *" />
+			<p:password id="password" styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.password}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'password','password')}"
+					update="passwordInfoFacesMsg" />
+			</p:password>
+			<p:spacer width="20px;" />
+			<p:message for="password" id="passwordInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+
+			<p:outputLabel for="mobile" value="Mobile *" />
+			<p:inputMask id="mobile" mask="(999) 999-9999"
+				styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.mobile}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'mobile','mobile')}"
+					update="mobileInfoFacesMsg" />
+			</p:inputMask>
+			<p:spacer width="20px;" />
+			<p:message for="mobile" id="mobileInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+
+			<p:outputLabel for="company" value="Company *" />
+			<p:inputText id="company" styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.company}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'company','company')}"
+					update="companyInfoFacesMsg" />
+			</p:inputText>
+			<p:spacer width="20px;" />
+			<p:message for="company" id="companyInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+
+			<p:outputLabel for="website" value="Website *" />
+			<p:inputText id="website" styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.website}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'website','website')}"
+					update="websiteInfoFacesMsg" />
+			</p:inputText>
+			<p:spacer width="20px;" />
+			<p:message for="website" id="websiteInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+
+			<p:outputLabel for="state" value="State *" />
+			<p:inputText id="state" styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.state}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'state','state')}"
+					update="stateInfoFacesMsg" />
+			</p:inputText>
+			<p:spacer width="20px;" />
+			<p:message for="state" id="stateInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+
+			<p:outputLabel for="city" value="City *" />
+			<p:inputText id="city" styleClass="width70percent floatLeft"
+				value="#{tutorSignupController.tutorSignup.city}"
+				style="width:200px;height:30px;">
+				<p:ajax event="blur" global="false"
+					listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'city','city')}"
+					update="cityInfoFacesMsg" />
+			</p:inputText>
+			<p:spacer width="20px;" />
+			<p:message for="city" id="cityInfoFacesMsg" severity="info"
+				styleClass="messageinfo" />
+			<p:spacer />
+
+		</p:panelGrid>
+		<p:panelGrid columns="3" layout="grid" styleClass="ui-panelgrid-blank"
+			columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-4"
+			style="border:0px none; background-color:transparent;">
+			<p:spacer />
+			<p:commandButton value="Create Account" process="@this"
+				update="nameInfoFacesMsg,emailInfoFacesMsg,passwordInfoFacesMsg,cityInfoFacesMsg,stateInfoFacesMsg,mobileInfoFacesMsg,companyInfoFacesMsg,websiteInfoFacesMsg"
+				global="false"
+				action="#{tutorSignupController.createTutorAccount(tutorSignupController.tutorSignup)}"
+				styleClass="signupformsubmitbtnstyle" />
+
+			<p:commandButton value="Reset" process="@this" global="false"
+				update="name,password,email,mobile,company,website,state,city"
+				action="#{tutorSignupController.resetCreateTutorAccount()}"
+				styleClass="signupformresetbtnstyle" />
+		</p:panelGrid>
+		<p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
+			columnClasses="ui-grid-col-3,ui-grid-col-6"
+			style="border:0px none; background-color:transparent;">
+			<p:spacer />
+			<p:commandLink id="alreadyaccount" value="Already have an account?"
+				action="#{landingPageController.navigateToLoginPage()}"
+				style="margin-left:20px;"></p:commandLink>
+		</p:panelGrid>
+	</div>
+
+	<p:ajaxStatus id="ajaxLoaderDialog" onstart="ajaxloaderdlg.show();"
+		oncomplete="ajaxloaderdlg.hide();">
+	</p:ajaxStatus>
+
+	<p:dialog widgetVar="ajaxloaderdlg" draggable="false" closable="false"
+		resizable="false" modal="true" appendToBody="true" showHeader="false"
+		styleClass="hiddenBorder" dynamic="true"
+		style="box-shadow: none !important;background-color : white !important;background-image: none;">
+		<p:graphicImage library="default"
+			name="images/ajax-loader-indicator.gif" />
+	</p:dialog>
+</h:body>
+</html>

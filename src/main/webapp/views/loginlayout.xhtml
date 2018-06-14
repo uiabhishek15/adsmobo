@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<title>PrimeFaces Atlas</title>
+	<ui:insert name="head" />
+</h:head>
+
+<h:body styleClass="BlueBack">
+
+	<div class="Wid80 MarAuto">
+		<div class="Wid80 MarAuto WidAutoOnMobile TexAlCenter">
+			<div style="margin-top: 10rem;"></div>
+			<a href="dashboard.xhtml" class="DispBlock"><h:graphicImage
+					name="images/logo.svg" library="atlas-layout" style="height:20px;" /></a>
+			<span class="White Fs20 FontDosisRegular"><br />Welcome to
+				login panel</span>
+			<div class="EmptyBox30"></div>
+			<div class="Wid60 MarAuto WidAutoOnMobile">
+				<div class="Container100">
+					<div class="Card ui-fluid">
+						<div class="Container100">
+							<div class="CardBigTopic TexAlCenter Purple">Login</div>
+							<div class="Container100">
+								<p:inputText placeholder="User Name"
+									value="#{loginController.userlogin.username}" />
+							</div>
+							<div class="Container100">
+								<p:inputText placeholder="Password"
+									value="#{loginController.userlogin.password}" />
+							</div>
+							<div class="Container100 TexAlLeft">
+								<p:selectBooleanCheckbox value="#{loginController.remember}"></p:selectBooleanCheckbox>
+								<!-- <p:selectManyCheckbox value="#{loginController.remember}">
+                                        <f:selectItem itemLabel="Remember Me" itemValue="Remember Me" />
+                                    </p:selectManyCheckbox> -->
+							</div>
+							<div class="Container100">
+								<p:commandButton value="LogIn" styleClass="loginformbtnstyle"
+									action="#{loginController.validateTutorLogin(loginController.userlogin)}">
+								</p:commandButton>
+							</div>
+						</div>
+						<div class="EmptyBox20"></div>
+						<div class="SeparatorFull"></div>
+						<div class="EmptyBox20"></div>
+						<div class="Container50 Responsive100">
+							<div class="CardBigTopic TexAlCenter Purple">SignUp With
+								Form</div>
+							<div class="Container100">
+								<p:inputText placeholder="E-Mail Address" />
+							</div>
+							<div class="Container100">
+								<p:inputText placeholder="User Name" />
+							</div>
+							<div class="Container100">
+								<p:inputText placeholder="Password" />
+							</div>
+							<div class="EmptyBox10"></div>
+							<div class="Container100">
+								<p:button value="Sign Up" styleClass="PurpleButton"
+									href="dashboard.xhtml" />
+							</div>
+						</div>
+
+						<div class="Container50 Responsive100">
+							<div class="CardBigTopic TexAlCenter Purple">Or With Social
+								Accounts</div>
+							<div class="Container100">
+								<p:button icon="fa fa-facebook" value="Connect With Facebook"
+									styleClass="BlueButton White Fs16" href="dashboard.xhtml" />
+							</div>
+							<div class="Container100">
+								<p:button icon="fa fa-twitter" value="Connect With Twitter"
+									styleClass="CyanButton White Fs16" href="dashboard.xhtml" />
+							</div>
+							<div class="Container100">
+								<p:button icon="fa fa-linkedin" value="Connect With Linkedin"
+									styleClass="White Fs16" href="dashboard.xhtml" />
+							</div>
+							<div class="Container100">
+								<p:button icon="fa fa-google-plus" value="Connect With Google"
+									styleClass="OrangeButton White Fs16" href="dashboard.xhtml" />
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<h:outputStylesheet name="css/core-layout.css" library="atlas-layout" />
+	<h:outputStylesheet name="css/font-awesome.css" library="atlas-layout" />
+	<h:outputStylesheet name="css/animate.css" library="atlas-layout" />
+	<h:outputStylesheet name="css/atlas-layout.css" library="atlas-layout" />
+	<h:outputStylesheet name="css/atlas-font.css" library="atlas-layout" />
+</h:body>
+
+</html>

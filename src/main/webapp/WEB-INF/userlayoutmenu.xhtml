@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pa="http://primefaces.org/atlas">
+
+	<h:form id="menuform">
+
+		<div id="layout-menu-cover">
+			<pa:menu id="layout-menu">
+				<p:menuitem id="pa_pro_page1" value="Dashboard" icon="icon-home"
+					outcome="/views/userlogin/tutordashboard.xhtml" />
+				<p:menuitem id="pa_theme1" value="Campaigns" icon="icon-cog"
+					outcome="/views/userlogin/campaigns.xhtml" />
+				<p:menuitem id="pa_theme11" value="Payment" icon="icon-text-document"
+					outcome="/views/userlogin/payments.xhtml" />
+				<p:menuitem id="pa_theme21" value="Contact Us" icon="icon-thumbs-up"
+					outcome="/views/userlogin/userContactus.xhtml" />
+				<p:submenu id="pa_default1" label="My Profile" icon="icon-user">
+					<p:menuitem id="pa_lnk1112" value="My Profile" outcome="/views/userlogin/myprofile.xhtml" icon="icon-user" />
+					<p:menuitem id="pa_lnk1122" value="Change Password" outcome="/views/userlogin/changepassword.xhtml" icon="icon-lock" />
+				</p:submenu>
+				<p:menuitem id="pa_theme212" value="LogOut" icon="icon-log-out"
+					onclick="ajax:loginController.navigateToTutorLogin()" />
+			</pa:menu>
+		</div>
+		<!-- <div id="layout-home-img">
+			<p:graphicImage library="default" name="images/background.jpg" style="width:100%;height:40%;"/>
+		</div> -->
+	</h:form>
+
+</ui:composition>

@@ -1,0 +1,555 @@
+.hiddenBorder {
+	border-style: hidden !important;
+	border: 0px !important;
+	padding: 0px !important;
+}
+
+.width100percent {
+	width: 100%;
+}
+
+.width120percent {
+	width: 120%;
+}
+
+.width98percent {
+	width: 98%;
+}
+
+.width50percent {
+	width: 50%;
+}
+
+.width25percent {
+	width: 25%;
+}
+
+.width75percent {
+	width: 75%;
+}
+
+.width40percent {
+	width: 40%;
+}
+
+.width52percent {
+	width: 52%;
+}
+
+.width53percent {
+	width: 53%;
+}
+
+.width54percent {
+	width: 54%;
+}
+
+.width55percent {
+	width: 55%;
+}
+
+.width56percent {
+	width: 56%;
+}
+
+.width57percent {
+	width: 57%;
+}
+
+.width58percent {
+	width: 58%;
+}
+
+.width59percent {
+	width: 59%;
+}
+
+.width60percent {
+	width: 60%;
+}
+
+.width20percent {
+	width: 20%;
+}
+
+.width10percent {
+	width: 10%;
+}
+
+.width15percent {
+	width: 15%;
+}
+
+.width12percent {
+	width: 12%;
+}
+
+.width13percent {
+	width: 13%;
+}
+
+.width14percent {
+	width: 14%;
+}
+
+.width16percent {
+	width: 16%;
+}
+
+.width18percent {
+	width: 18%;
+}
+
+.fontleckerli {
+	font: 300 3.4em/100% 'Leckerli One', Helvetica, Sans-serif;
+	color: red !important !important;
+	/* text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px
+		rgba(0, 0, 0, 0.05); */
+}
+
+.fontleckerligreen {
+	font: 700 5.4em/250% 'Leckerli One', Helvetica, Sans-serif;
+	color: #2E8B57 !important;
+	/* text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 7px 7px 0px
+		rgba(0, 0, 0, 0.05); */
+}
+
+.imgstyle {
+	padding: 1px;
+	border: 2px solid #5B4282;
+	border-radius: 20px;
+	cursor: pointer;
+	/* background-color:#8FBC8F;*/
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+/* style for facet images of input text of bootstrap*/
+.input-group {
+	width: 270px;
+}
+
+.input-group .input-group-addon {
+	width: 20px;
+}
+
+.loginformstyle {
+	left: 38%;
+	top: 30%;
+	position: absolute;
+}
+
+.logintextfieldstyle {
+	height: 45px;
+	width: 270px;
+	background-color: white !important;
+}
+
+.logintextfieldstyle:focus {
+	border: solid 1px #337AB7;
+}
+
+.signuptextfieldstyle {
+	height: 45px;
+	width: 270px;
+}
+
+.signuptextfieldstyle:focus {
+	outline: none;
+	border: 2px solid #337AB7;
+}
+
+.signuptextfieldstyle:hover {
+	border: 2px solid #337AB7;
+}
+
+.signupselectonemenustyle {
+	height: 100px;
+	width: 270px;
+}
+
+.signupselectonemenustyle:focus {
+	outline: none;
+	border: 4px solid #337AB7;
+}
+
+.signupselectonemenustyle:hover {
+	border: 4px solid #337AB7;
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield,
+	.ui-focus-inputfield {
+	box-shadow: none !important;
+	background: blue !important;
+}
+
+.inputtextstyle :focus {
+	border: 4px solid #337AB7;
+}
+
+.inputtextstyle :hover {
+	border: 4px solid #337AB7;
+}
+
+.tutorstudentformstyle {
+	left: 32%;
+	top: 20%;
+	position: absolute;
+}
+
+.loginbuttonstyle {
+	height: 45px;
+	width: 270px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default {
+	background: none !important;
+	font-weight: normal;
+}
+
+.launchingpagestyle div div {
+	background-color: #F0F0F0 !important;
+}
+
+.ui-selectonemenu-panel {
+	width: 100px;
+}
+
+.ui-selectonemenu-label {
+	width: 100px;
+	background-color: white !important;
+}
+
+.ui-widget-header, .ui-corner-all .ui-selectcheckboxmenu-header .ui-helper-clearfix
+	{
+	background-color: white !important;
+}
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+	width: 30px !important;
+	position: absolute;
+	border-left: none;
+	right: 0;
+	top: 0;
+	padding: 10px 6px 6px 4px !important;
+	background: white !important;
+	border: none !important;
+}
+
+.countryselectonemenustyle {
+	width: 270px;
+	height: 45px;
+	background: #F0F0F0 !important;
+	color: #F0F0F0 !important
+}
+
+.ui-message-info, .ui-message-error, .ui-message-warn, .ui-message-fatal
+	{
+	border: 1px solid;
+	margin: 0px 5px;
+	padding: 2px 5px;
+}
+
+.ui-messages-error, .ui-message-error {
+	color: #D8000C;
+	background-color: #FFBABA;
+}
+/* 
+.emailtooltipstyle> .ui-tooltip.ui-tooltip-content.ui-widget-content {
+	background-color: #ffbfb3;
+	color: #000000;
+	vertical-align: middle;
+	display: inline-block;
+	font-family: sans-serif;
+	background-image: none;
+} */
+.ui-selectcheckboxmenu, .ui-widget .ui-state-default .ui-corner-all {
+	background-color: white !important;
+	height: 42px;
+	outline: none;
+}
+
+.ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger {
+	width: 30px !important;
+	position: absolute;
+	border-left: none;
+	right: 0;
+	top: 0;
+	padding: 10px 6px 6px 4px !important;
+}
+
+/*this will remove checkbox all in selectmanymenu*/
+.ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox-box
+	{
+	display: none;
+}
+
+.availabledayandtimebtnstyle {
+	width: 200px;
+	height: 30px;
+}
+
+.ui-icon.fa {
+	text-indent: 0px;
+	background-image: none;
+}
+
+.fileupload-buttonbar {
+	background: transparent none;
+	border: none;
+}
+
+.fileupload-content {
+	display: none;
+}
+
+.ui-fileupload .fileinput-button {
+	background-color: rgba(142, 103, 64, 0.98);
+}
+
+.fileupload-simple>.ui-fileupload-content {
+	display: none;
+}
+
+.fileupload-simple>.ui-fileupload-buttonbar {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	background: #FFF5EE !important;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left.ui-fileupload-choose input[type=file]
+	{
+	background-color: rgba(142, 103, 64, 0.98);
+	width: 82px;
+	height: 33px;
+	margin-top: -7px;
+}
+
+.panelheaderstyle>.ui-panel-content.ui-widget-content {
+	background-color: white !important;
+	color: white !important;
+}
+
+.tutorsearchpanelheaderstyle>.ui-panel-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-all
+	{
+	background-color: green !important;
+	color: white !important;
+}
+
+.separatorpaddingstyle {
+	border-left-width: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+.horizontalscrollbarremovestyle .ui-layout-center {
+	overflow-x: hidden !important;
+}
+
+.horizontalscrollbarremovestyle .ui-layout-center .ui-layout-unit-content
+	{
+	overflow-x: hidden !important;
+}
+
+.ui-layout-unit .ui-layout-unit-content {
+	padding: 0px none;
+	border: 0px none;
+}
+
+.ui-page {
+	-webkit-backface-visibility: hidden;
+}
+
+.panelGridNoBorder.ui-panelgrid>*>tr, .panelGridNoBorder.ui-panelgrid .ui-panelgrid-cell
+	{
+	border: none;
+}
+
+.calendarstyle.ui-datepicker {
+	background-color: green !important;
+	color: white !important;
+}
+
+.countrymenubtnstyle.ui-button {
+	background-color: #2FCC71 !important;
+	color: #fff !important;
+	border: none;
+	font-family: sans-serif;
+	box-shadow: none !important;
+	width: 100px;
+	height: 30px;
+}
+
+.signupformsubmitbtnstyle.ui-button {
+	background-color: #2FCC71 !important;
+	color: #fff !important;
+	border: none;
+	font-family: sans-serif;
+	box-shadow: none !important;
+	height: 35px;
+}
+
+.signupformresetbtnstyle.ui-button {
+	background-color: #F08080 !important;
+	color: #fff !important;
+	border: none;
+	font-family: sans-serif;
+	box-shadow: none !important;
+	height: 35px;
+}
+
+.loginformbtnstyle.ui-button {
+	background-color: #2F4F4F !important;
+	color: #fff !important;
+	border: none;
+	font-family: sans-serif;
+	box-shadow: none !important;
+	width: 170px;
+	height: 32px;
+}
+
+.labelstyle {
+	width: 200px;
+	font-family: 'Nunito', sans-serif;
+	color: #191970 !important;
+}
+
+.labelredstyle {
+	width: 200px;
+	font-family: 'Nunito', sans-serif;
+	color: red !important;
+}
+
+.headerlabelstyle {
+	font-family: 'Nunito', sans-serif;
+	color: #191970 !important;
+}
+
+.smalllabelstyle {
+	width: 200px;
+	font-family: 'Courgette', cursive;
+	color: #4169E1 !important;
+}
+
+.inputtextfieldstyle.ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all
+	{
+	width: 100%;
+	height: 32px;
+	background-color: white !important;
+	box-shadow: none !important;
+}
+
+.passwordtextfieldstyle.ui-inputfield.ui-password.ui-widget.ui-state-default.ui-corner-all
+	{
+	width: 100%;
+	height: 32px;
+	background-color: white !important;
+	box-shadow: none !important;
+}
+
+.countrymenupanelstyle.ui-panel.ui-widget.ui-widget-content.ui-corner-all
+	{
+	position: absolute;
+	height: 26%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: #F0F8FF !important;
+}
+
+#dob_input {
+	width: 109%;
+	float: left;
+	height: 30px;
+}
+
+.selectonebuttonstyle .ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-corner-right
+	{
+	margin-left: 5px !important;
+	margin-bottom: 5px !important;
+	border-radius: 5px 5px/5px 5px;
+	-moz-border-radius: 5px 5px/5px 5px;
+	text-align: center;
+}
+
+.selectonebuttonstyle .ui-button.ui-widget.ui-state-default.ui-button-text-only
+	{
+	margin-left: 5px !important;
+	margin-bottom: 5px !important;
+	border-radius: 5px 5px/5px 5px;
+	-moz-border-radius: 5px 5px/5px 5px;
+	text-align: center;
+}
+
+.panelbordernone.ui-panel.ui-widget.ui-widget-content.ui-corner-all {
+	border: none !important;
+}
+
+.panelheaderstyle>.ui-panel-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-all
+	{
+	background-image: none;
+	background-color: #c6ebd7 !important;
+}
+
+.facommandbuttonstyle.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only
+	{
+	border: none !important;
+	background-image: none;
+}
+
+.captchabox {
+	width: 100px !important;
+	height: 30px !important;
+	background-color: #a3c2db !important;
+	border: solid 1px #a3c2db !important;
+	text-align: center !important;
+	font-size: 22px !important;
+	text-decoration: line-through !important;
+	font-family: 'Freckle Face', cursive;
+}
+
+.requiredStyle {
+	color: #B94A48 !important;
+	vertical-align: text-top;
+}
+
+.ui-selectonemenu-filter-container {
+	width: 100% !important;
+}
+
+.solidline {
+	border-bottom: 2px solid #999;
+}
+
+.customPanel {
+	background: #F0F8FF;
+}
+
+.panelHeaderStyle .ui-widget-header, .ui-corner-all .ui-selectcheckboxmenu-header .ui-helper-clearfix
+	{
+	background-color: #F0F8FF !important;
+	border: none !important;
+	font-size: 20px !important;
+	text-align: justify;
+	text-transform: uppercase;
+	text-decoration-color: white !important;
+	letter-spacing: 0px;
+	word-spacing: 0px;
+	color: #FF0063;
+	font-family: Lucida Handwriting !important;
+}
+
+.selectBySubjectPanelGrid tr {
+	float: left;
+	width: 20%;
+	padding: 2px 2px;
+}

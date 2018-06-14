@@ -1,0 +1,88 @@
+.countrybtn .ui-button-text {
+	background-color: #FA0076 !important;
+}
+
+.chooseyourcountryonemenu.ui-selectonemenu .ui-selectonemenu-trigger {
+	height: 32px !important;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+.labelredstyle {
+	width: 200px;
+	font-family: 'Nunito', sans-serif;
+	color: red !important;
+}
+
+.requiredStyle {
+	color: #B94A48 !important;
+	vertical-align: text-top;
+}
+
+.labelstyle {
+	width: 200px;
+	font-family: 'Nunito', sans-serif;
+	color: #191970 !important;
+}
+
+.panelGridNoBorder.ui-panelgrid tbody tr td {
+	border: solid 1px #FFFFFF !important;
+}
+
+.labelcolumn td .ui-panelgrid-cell {
+	width: 200px !important;
+}
+
+.messageinfo .ui-messages-info, .ui-message-info {
+	font-size: 10px !important;
+	padding: 2px !important;
+	margin: 0px 0px;
+	width: 170px;
+}
+
+.smalllabelstyle {
+	width: 138px;
+	font-family: 'Courgette', cursive;
+	color: #4169E1 !important;
+}
+
+.signupselectonemenu.ui-selectonemenu .ui-selectonemenu-trigger {
+	padding: 1px 20px !important;
+}
+
+.signuppanlegrid.ui-grid-col-6 {
+	width: 30% !important;
+}
+
+.captchabox {
+	width: 80px !important;
+	height: 30px !important;
+	background-color: #a3c2db !important;
+	border: solid 1px #a3c2db !important;
+	text-align: center !important;
+	font-size: 22px !important;
+	text-decoration: line-through !important;
+	font-family: 'Freckle Face', cursive;
+}
+
+.headerlabelstyle {
+	font-family: 'Nunito', sans-serif;
+	color: #191970 !important;
+}
+
+@media ( min-width : 600px) {
+	.captcha {
+		margin: -45px 0px 0px 229px;
+		width: 300px;
+	}
+}
+
+.captchaoutputlabel label{
+	margin-left:100px;
+}

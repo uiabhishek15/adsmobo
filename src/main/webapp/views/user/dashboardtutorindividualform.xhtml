@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:common="http://xmlns.jcp.org/jsf/composite/common">
+<h:body>
+	<div class="Container100 NoPadding Responsive50"
+		style="margin: 0 0 0 0%;">
+		<div class="Container100">
+			<div class="Card Flex FlexWrap">
+				<p:outputPanel id="tutorindividualoutputpanel">
+					<p:panel styleClass="width100percent customPanel">
+						<h:panelGrid columns="3">
+							<p:column>
+								<h:panelGrid>
+									<p:row>
+										<p:graphicImage id="tutorimage"
+											value="#{tutorSignupController.getTutorImage(tutorController.tutorSearch.selectedTutor.tutor.imageMetadataPath)}"
+											cache="false" style="height: 90px; width: 90px;"
+											rendered="#{tutorController.tutorSearch.selectedTutor.tutor.imageMetadataPath ne null and tutorController.tutorSearch.selectedTutor.tutor.imageMetadataPath ne ''}" />
+									</p:row>
+									<p:row>
+										<p:spacer width="0" height="270" />
+									</p:row>
+								</h:panelGrid>
+							</p:column>
+							<p:column>
+								<p:spacer width="30" height="0" />
+							</p:column>
+							<p:column>
+								<h:panelGrid id="tutorindividualpanelgrid"
+									styleClass="width100percent customPanel">
+									<b><h:outputText
+											value="Tutor Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{tutorController.tutorSearch.selectedTutor.tutor.userName}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="Gender / Age: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{tutorController.tutorSearch.selectedTutor.tutor.selectedGender.name}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{tutorController.tutorSearch.selectedTutor.tutorAddress.state.name}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="Subregion:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{tutorController.tutorSearch.selectedTutor.tutorAddress.subRegion.name}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{tutorController.tutorSearch.selectedTutor.tutorAddress.city.name}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="Interested in Subjects:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #{tutorController.tutorSearch.selectedTutor.selectedSubjectListString}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="Qualification:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{tutorController.tutorSearch.selectedTutor.qualification.selectedQualification}" /></b>
+								</h:panelGrid>
+							</p:column>
+						</h:panelGrid>
+					</p:panel>
+				</p:outputPanel>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

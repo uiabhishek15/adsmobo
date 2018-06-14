@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/countrymenutemplate.xhtml">
+
+	<ui:define name="content">
+		<div id="center-layout">
+			<div class="TexAlCenter">
+				<div class="ui-fluid">
+					<p:panelGrid columns="1"
+						style="background-color: #F0F8FF !important;" layout="grid"
+						styleClass="ui-panelgrid-blank">
+						<p:graphicImage library="default"
+							name="images/chooseyourcountry.png" />
+						<p:selectOneMenu id="chooseyourcountryonemenu"
+							value="#{countryBean.selectedCountry}" style="width:100%;"
+							styleClass="chooseyourcountryonemenu" filter="true"
+							filterMatchMode="startsWith" panelStyle="width:250px"
+							converter="com.banana.spytutors.web.custom.converter.CountryNameConverter"
+							maxlength="400">
+							<f:selectItem itemLabel="Select Country" itemValue="#{null}" />
+							<f:selectItems value="#{countryBean.countryList}" var="country"
+								itemValue="#{country}" itemLabel="#{country.countryName}" />
+							<p:ajax event="change" process="@this" />
+						</p:selectOneMenu>
+						<div class="Container20 Responsive20">
+							<b:button value="Submit" process="@this"
+								action="#{landingPageController.navigateToLandingPage()}"
+								styleClass="countrybtn">
+							</b:button>
+						</div>
+					</p:panelGrid>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="goToStudentLogin::#views#studentlogin#studentlogin.xhtml"
+    NAME="output" PATH="/views/studentlogin/studentlogin.xhtml"
+    TARGET="rules:#views#studentlogin#studentlogin.xhtml"
+    TITLE="goToStudentLogin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#views#studentlogin#studentlogin.xhtml"
+  PATH="/views/studentlogin/studentlogin.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:1" PATH="*" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:1" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="goToTutorLogin::#views#tutorlogin#tutorlogin.xhtml"
+    NAME="output" PATH="/views/tutorlogin/tutorlogin.xhtml"
+    TARGET="rules:#views#tutorlogin#tutorlogin.xhtml"
+    TITLE="goToTutorLogin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#views#tutorlogin#tutorlogin.xhtml"
+  PATH="/views/tutorlogin/tutorlogin.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:2" PATH="*" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:2" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="goToTutorSignup::#views#tutor#tutorsignup.xhtml" NAME="output"
+    PATH="/views/tutor/tutorsignup.xhtml"
+    TARGET="rules:#views#tutor#tutorsignup.xhtml"
+    TITLE="goToTutorSignup" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:*:3" PATH="*" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:3" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="goToStudentSignup::#views#student#studentsignup.xhtml"
+    NAME="output" PATH="/views/student/studentsignup.xhtml"
+    TARGET="rules:#views#student#studentsignup.xhtml"
+    TITLE="goToStudentSignup" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:*:4" PATH="*" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:4" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="goToLandingPage::#views#dashboard.xhtml"
+    NAME="output" PATH="/views/dashboard.xhtml"
+    TARGET="rules:#views#dashboard.xhtml" TITLE="goToLandingPage" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#views#student#studentsignup.xhtml"
+  PATH="/views/student/studentsignup.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:5" PATH="*" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:5" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="goToLoginPage::#views#login.xhtml"
+    NAME="output" PATH="/views/login.xhtml"
+    TARGET="rules:#views#login.xhtml" TITLE="goToLoginPage" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#views#login.xhtml" PATH="/views/login.xhtml"
+  SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#views#dashboard.xhtml"
+  PATH="/views/dashboard.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#views#tutor#tutorsignup.xhtml"
+  PATH="/views/tutor/tutorsignup.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

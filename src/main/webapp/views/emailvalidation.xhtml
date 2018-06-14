@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:body>
+	<p:outputPanel id="emailoutputpanel">
+		<pe:switch id="emailswitch"
+			value="#{emailValidator.emailValidationMessage}">
+			<pe:defaultCase>
+				<b:inputText id="defaultemail" styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.email}">
+					<p:ajax event="change" process="@this"					 
+						update="@([id$=emailoutputpanel])"
+						listener="#{emailValidator.validateEmail(tutorSignupController.tutorSignup.tutor)}" global="false" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="envelope" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="defaultemail" value="Email" />
+			</pe:defaultCase>
+
+			<pe:case value="noemail">
+				<b:inputText id="noemail" styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.email}">
+					<p:ajax event="change" process="@this"
+					    global="false"
+						update="@([id$=emailoutputpanel])"
+						listener="#{emailValidator.validateEmail(tutorSignupController.tutorSignup.tutor)}" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="envelope" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="noemail" value="Email" />
+			</pe:case>
+
+			<pe:case value="invalidemail">
+				<b:inputText id="invalidemail" styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.email}">
+					<p:ajax event="change" process="@this"
+					    global="false"
+						update="invalidemailtootltip,@([id$=emailoutputpanel])"
+						listener="#{emailValidator.validateEmail(tutorSignupController.tutorSignup.tutor)}" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="envelope" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="invalidemail" value="Email" />
+				<pe:tooltip id="invalidemailtootltip" for="invalidemail"
+					widgetVar="invalidemailtltp" autoShow="true"
+					myPosition="right center" atPosition="left center"
+					value="Invalid email address.Please enter valid email address." />
+			</pe:case>
+
+			<pe:case value="#{null}">
+				<b:inputText id="nullemail" styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.email}">
+					<p:ajax event="change" process="@this"
+					    global="false"
+						update="@([id$=emailoutputpanel])"
+						listener="#{emailValidator.validateEmail(tutorSignupController.tutorSignup.tutor)}" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="envelope" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="nullemail" value="Email" />
+			</pe:case>
+		</pe:switch>
+	</p:outputPanel>
+
+</h:body>
+
+</html>

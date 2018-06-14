@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:common="http://xmlns.jcp.org/jsf/composite/common">
+<h:body>
+	<div class="Container100 NoPadding Responsive50"
+		style="margin: 0 0 0 30%;">
+		<div class="Container100">
+			<div class="Card Flex FlexWrap">
+				<p:outputPanel id="tutorindividualoutputpanel">
+					<p:panel styleClass="width100percent customPanel">
+						<h:panelGrid columns="3">
+							<p:column>
+								<h:panelGrid>
+									<p:row>
+										<!-- <p:graphicImage id="tutorimage"
+											value="#{tutorSignupController.getTutorImage(lo)}"
+											cache="false" style="height: 90px; width: 90px;"
+											rendered="#loginController.userlogin.fetchedTutor.tutor.imageMetadataPath ne null and loginController.userlogin.fetchedTutor.tutor.imageMetadataPath ne ''}" /> -->
+									</p:row>
+									<p:row>
+										<p:spacer width="0" height="270" />
+									</p:row>
+								</h:panelGrid>
+							</p:column>
+							<p:column>
+								<p:spacer width="30" height="0" />
+							</p:column>
+							<p:column>
+								<h:panelGrid id="tutorindividualpanelgrid"
+									styleClass="width100percent customPanel">
+									<b><h:outputText
+											value="Advertiser Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{loginController.userlogin.fetchedTutor.fullname}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{loginController.userlogin.fetchedTutor.email}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{loginController.userlogin.fetchedTutor.state}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{loginController.userlogin.fetchedTutor.mobile}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{loginController.userlogin.fetchedTutor.city}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="Company:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #{loginController.userlogin.fetchedTutor.company}" /></b>
+									<hr size="1" />
+									<b><h:outputText
+											value="Website:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{loginController.userlogin.fetchedTutor.website}" /></b>
+								</h:panelGrid>
+							</p:column>
+						</h:panelGrid>
+					</p:panel>
+				</p:outputPanel>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:body>
+	<p:outputPanel id="phoneNumberValidationOutputPanel">
+		<pe:switch id="phoneNumberSwitch"
+			value="#{phoneNumberValidator.phoneNumberValidationMessage}">
+			<pe:defaultCase>
+				<b:inputText id="defaultPhoneNumber"
+					styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.phoneNumber}">
+					<p:ajax event="blur" process="@this"
+						update="@([id$=phoneNumberValidationOutputPanel])"
+						listener="#{phoneNumberValidator.validatePhoneNumber(tutorSignupController.tutorSignup.tutor)}" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="phone" size="lg" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="defaultPhoneNumber" value="Phone" />
+			</pe:defaultCase>
+
+			<pe:case value="nophonenumber">
+				<b:inputText id="noPhoneNumber" styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.phoneNumber}">
+					<p:ajax event="blur" process="@this"
+						update="@([id$=phoneNumberValidationOutputPanel])"
+						listener="#{phoneNumberValidator.validatePhoneNumber(tutorSignupController.tutorSignup.tutor)}" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="phone" size="lg" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="noPhoneNumber" value="Phone" />
+			</pe:case>
+
+			<pe:case value="invalidphonenumber">
+				<b:inputText id="invalidPhoneNumber"
+					styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.phoneNumber}">
+					<p:ajax event="blur" process="@this"
+						update="invalidphonenumbertootltip,@([id$=phoneNumberValidationOutputPanel])"
+						listener="#{phoneNumberValidator.validatePhoneNumber(tutorSignupController.tutorSignup.tutor)}" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="phone" size="lg" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="invalidphonenumber" value="Phone" />
+				<pe:tooltip id="invalidphonenumbertootltip" for="invalidphonenumber"
+					widgetVar="invalidphonenumbertltp" autoShow="true"
+					myPosition="right center" atPosition="left center"
+					value="Invalid phone number.Please enter valid phone number." />
+			</pe:case>
+
+			<pe:case value="#{null}">
+				<b:inputText id="nullPhoneNumber" styleClass="signuptextfieldstyle"
+					style="background-color: white !important;"
+					value="#{tutorSignupController.tutorSignup.tutor.phoneNumber}">
+					<p:ajax event="blur" process="@this"
+						update="@([id$=phoneNumberValidationOutputPanel])"
+						listener="#{phoneNumberValidator.validatePhoneNumber(tutorSignupController.tutorSignup.tutor)}" />
+					<f:facet name="prepend">
+						<b:iconAwesome name="phone" size="lg" />
+					</f:facet>
+				</b:inputText>
+				<p:watermark for="nullPhoneNumber" value="Phone" />
+			</pe:case>
+		</pe:switch>
+	</p:outputPanel>
+
+</h:body>
+
+</html>

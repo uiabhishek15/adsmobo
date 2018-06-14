@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+	<composite:interface>
+		<composite:attribute name="type"></composite:attribute>
+	</composite:interface>
+
+	<composite:implementation>
+		<p:panelGrid columns="4" styleClass="ui-panelgrid-blank" layout="grid"
+			style="margin-left:-15px;">
+			<h:panelGrid id="#{cc.attrs.type}captchaPanelGrid" columns="3">
+				<p:spacer width="10" height="0" />
+				<h:outputText value="#{msg['required.character']}"
+					styleClass="requiredStyle" />
+				<p:outputLabel for="#{cc.attrs.type}captchaInputText"
+					value="CAPTCHA" styleClass="headerlabelstyle" />
+
+			</h:panelGrid>
+			<c:choose>
+				<c:when test="#{cc.attrs.type eq 'tutor'}">
+					<p:inputText id="tutorcaptchaInputText" styleClass="Wid70 Fleft"
+						value="#{captchaBean.captchaFromInput}"
+						style="width:200px;height:30px;margin-left:21px;">
+						<p:ajax event="blur" global="false"
+							listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'captcha','tutorCaptchaCommonPanel:tutorcaptchaInputText')}" />
+					</p:inputText>
+				</c:when>
+				<c:otherwise>
+					<p:inputText id="studentcaptchaInputText" styleClass="Wid70 Fleft"
+						value="#{captchaBean.captchaFromInput}"
+						style="width:200px;height:30px;margin-left:21px;">
+						<p:ajax event="blur" global="false"
+							listener="#{studentSignupController.validateStudentSignup(studentSignupController.studentSignup,'captcha','studentCaptchaCommonPanel:studentcaptchaInputText')}" />
+					</p:inputText>
+				</c:otherwise>
+			</c:choose>
+			<p:outputPanel id="captchaGeneratedTextPanel" styleClass="Fleft">
+				<p:outputLabel value="#{captchaBean.captchaFromGenerated}"
+					styleClass="captchabox" style="margin-left:58px;" />
+			</p:outputPanel>
+			<c:choose>
+				<c:when test="#{cc.attrs.type eq 'tutor'}">
+					<p:commandLink id="#{cc.attrs.type}captchaRefeshCmdLink"
+						action="#{captchaBean.populateCaptchaString()}"
+						update="captchaGeneratedTextPanel,tutorcaptchaInputText"
+						ajax="true" global="false">
+						<p:graphicImage library="default" name="images/refresh.png"
+							width="30" height="30"  />
+					</p:commandLink>
+				</c:when>
+				<c:otherwise>
+					<p:commandLink id="#{cc.attrs.type}captchaRefeshCmdLink"
+						action="#{captchaBean.populateCaptchaString()}"
+						update="captchaGeneratedTextPanel,studentcaptchaInputText"
+						ajax="true" global="false">
+						<p:graphicImage library="default" name="images/refresh.png"
+							width="30" height="30"  />
+					</p:commandLink>
+				</c:otherwise>
+			</c:choose>
+			<pe:tooltip for="#{cc.attrs.type}captchaRefeshCmdLink"
+				value="Refresh for new Captcha Image" />
+				<h:panelGrid columns="2">
+				<p:outputLabel value="(Please type captcha here)" styleClass="captchaoutputlabel"/>
+			</h:panelGrid>
+				<p:column styleClass="width50percent">
+					<div class="captcha">
+						<p:message for="#{cc.attrs.type}captchaInputText"
+							id="#{cc.attrs.type}CaptchaInputTextMsg" severity="info" styleClass="messageinfo" />
+					</div>
+				</p:column>
+		</p:panelGrid>
+	</composite:implementation>
+</ui:component>

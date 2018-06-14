@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+	<composite:interface>
+		<composite:attribute name="tutorsearchinputtextid"></composite:attribute>
+
+	</composite:interface>
+	<composite:implementation>
+		<p:outputPanel>
+			<p:panel style="background-color:#F3FAFE !important;">
+				<p:row>
+					<center>
+						<p:graphicImage library="default" name="images/searchtutor.png" />
+					</center>
+				</p:row>
+				<div style="height: 8px;" />
+				<p:row>
+					<!-- <b:inputText rendered="false" /> -->
+					<p:inputText id="#{cc.attrs.tutorsearchinputtextid}"
+						styleClass="inputtextstyle inputtextfieldstyle"
+						value="#{tutorController.tutorSearch.searchedCity}">
+						<p:ajax event="change" />
+					</p:inputText>
+					<b><p:watermark for="#{cc.attrs.tutorsearchinputtextid}"
+							value="Enter City" /></b>
+				</p:row>
+				<div style="height: 12px;" />
+				<p:row>
+					<p:commandButton value="Search" styleClass="loginformbtnstyle"
+						action="#{tutorController.updateTutorSearch(tutorController.tutorSearch)}"
+						update="@([id$=landingpageoutputpanel])" />
+				</p:row>
+			</p:panel>
+
+		</p:outputPanel>
+
+	</composite:implementation>
+</ui:component>

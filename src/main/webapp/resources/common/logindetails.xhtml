@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+	<composite:interface>
+		<composite:attribute name="type"></composite:attribute>
+	</composite:interface>
+
+	<composite:implementation>
+		<p:panelGrid columns="4" styleClass="ui-panelgrid-blank" layout="grid">
+			<h:panelGrid columns="3">
+				<h:outputText value="#{msg['required.character']}"
+					styleClass="requiredStyle" />
+				<p:spacer />
+				<p:outputLabel for="#{cc.attrs.type}emailid" value="#{msg['email']}"
+					styleClass="width30percent floatLeft labelstyle" />
+			</h:panelGrid>
+			<c:choose>
+				<c:when test="#{cc.attrs.type eq 'tutor'}">
+					<p:inputText id="#{cc.attrs.type}emailid"
+						value="#{tutorSignupController.tutorSignup.tutor.email}"
+						styleClass="width70percent floatLeft"
+						style="width:200px;height:30px;margin-left:9px;">
+						<p:ajax event="blur" global="false"
+							listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'email','tutorcommonlogindetails:tutoremailid')}"
+							update="#{cc.attrs.type}EmailInfoFacesMsg,@([id$=captchaGeneratedTextPanel])" />
+					</p:inputText>
+				</c:when>
+				<c:otherwise>
+					<p:inputText id="#{cc.attrs.type}emailid"
+						value="#{studentSignupController.studentSignup.student.email}"
+						styleClass="width70percent floatLeft"
+						style="width:200px;height:30px;margin-left:9px;">
+						<p:ajax event="blur" global="false"
+							listener="#{studentSignupController.validateStudentSignup(studentSignupController.studentSignup,'email','studentcommonlogindetails:studentemailid')}"
+							update="#{cc.attrs.type}EmailInfoFacesMsg,@([id$=captchaGeneratedTextPanel])" />
+					</p:inputText>
+				</c:otherwise>
+			</c:choose>
+			<p:spacer/>
+			<p:message for="#{cc.attrs.type}emailid"
+				id="#{cc.attrs.type}EmailInfoFacesMsg" severity="info" styleClass="loginmessageinfo"/>
+			<h:panelGrid columns="3">
+				<h:outputText value="#{msg['required.character']}"
+					styleClass="requiredStyle" />
+				<p:spacer />
+				<p:outputLabel for="#{cc.attrs.type}passwordid"
+					value="#{msg['password']}"
+					styleClass="width30percent floatLeft labelstyle" />
+			</h:panelGrid>
+
+			<c:choose>
+				<c:when test="#{cc.attrs.type eq 'tutor'}">
+					<p:password id="#{cc.attrs.type}passwordid"
+						value="#{tutorSignupController.tutorSignup.tutor.password}"
+						styleClass="width70percent floatLeft"
+						style="width:200px;height:30px;margin-left:9px;">
+						<p:ajax event="blur" global="false"
+							listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'password','tutorcommonlogindetails:tutorpasswordid')}"
+							update="#{cc.attrs.type}PasswordInfoFacesMsg" />
+					</p:password>
+				</c:when>
+				<c:otherwise>
+					<p:password id="#{cc.attrs.type}passwordid"
+						value="#{studentSignupController.studentSignup.student.password}"
+						styleClass="width70percent floatLeft"
+						style="width:200px;height:30px;margin-left:9px;">
+						<p:ajax event="blur" global="false"
+							listener="#{studentSignupController.validateStudentSignup(studentSignupController.studentSignup,'password','studentcommonlogindetails:studentpasswordid')}"
+							update="#{cc.attrs.type}PasswordInfoFacesMsg" />
+					</p:password>
+				</c:otherwise>
+			</c:choose>
+			<p:spacer />
+			<p:message for="#{cc.attrs.type}passwordid"
+				id="#{cc.attrs.type}PasswordInfoFacesMsg" severity="info" />
+			<h:panelGrid columns="3">
+				<h:outputText value="#{msg['required.character']}"
+					styleClass="requiredStyle" />
+				<p:spacer />
+				<p:outputLabel for="#{cc.attrs.type}confirmpasswordid"
+					value="#{msg['confirm.password']}"
+					styleClass="width30percent floatLeft" style="width: 140px;font-family: 'Nunito', sans-serif;color: #191970 !important;"/>
+			</h:panelGrid>
+			<c:choose>
+				<c:when test="#{cc.attrs.type eq 'tutor'}">
+					<p:password id="#{cc.attrs.type}confirmpasswordid"
+						value="#{tutorSignupController.tutorSignup.tutor.confirmPassword}"
+						styleClass="width70percent floatLeft"
+						style="width:200px;height:30px;margin-left:9px;">
+						<p:ajax event="blur" global="false"
+							listener="#{tutorSignupController.validateTutorSignup(tutorSignupController.tutorSignup,'confirmpassword','tutorcommonlogindetails:tutorconfirmpasswordid')}"
+							update="#{cc.attrs.type}ConfirmPasswordInfoFacesMsg" />
+					</p:password>
+				</c:when>
+				<c:otherwise>
+					<p:password id="#{cc.attrs.type}confirmpasswordid"
+						value="#{studentSignupController.studentSignup.student.confirmPassword}"
+						styleClass="width70percent floatLeft"
+						style="width:200px;height:30px;margin-left:9px;">
+						<p:ajax event="blur" global="false"
+							listener="#{studentSignupController.validateStudentSignup(studentSignupController.studentSignup,'confirmpassword','studentcommonlogindetails:studentconfirmpasswordid')}"
+							update="#{cc.attrs.type}ConfirmPasswordInfoFacesMsg" />
+					</p:password>
+				</c:otherwise>
+			</c:choose>
+			<p:spacer />
+			<p:message for="#{cc.attrs.type}confirmpasswordid"
+				id="#{cc.attrs.type}ConfirmPasswordInfoFacesMsg" severity="info" />
+				</p:panelGrid>
+	</composite:implementation>
+</ui:component>

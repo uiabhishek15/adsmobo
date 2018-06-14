@@ -1,0 +1,255 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:common="http://xmlns.jcp.org/jsf/composite/common"
+	template="/WEB-INF/spytutorstemplate.xhtml">
+
+	<ui:define name="head">
+
+	</ui:define>
+
+	<ui:define name="content">
+
+		<!-- Left Column -->
+		<div class="Container20 NoPadding Responsive100">
+			<div class="Container100">
+				<div class="Card ui-fluid">
+					<b:inputText rendered="false" />
+					<common:loginform usernameid="landingpageusername"
+						passwordid="landingpagepassword" />
+				</div>
+			</div>
+			<div class="Container100 Responsive50">
+				<div class="Card">
+					<common:tutorsearch tutorsearchinputtextid="landingpagetutorsearch" />
+				</div>
+			</div>
+			<!-- <div class="Container100 Responsive50">
+				<div class="Card ui-fluid">
+					<common:studentsearchbycity
+						studentsearchinputtextid="landingpagestudentsearch" />
+				</div>
+			</div> -->
+			<!-- 	<div class="Container100 Responsive50">
+				<div class="Card ui-fluid">
+					<i class="icon-flattr Red Fs40 Fleft MarRight10"></i> <span
+						class="Red Fs20 FontDosisSemiBold">Atlas Analytical <br />
+						Applications
+					</span>
+					<div class="EmptyBox10"></div>
+					<span class="BoldLeaden Fs14 FontDosisMedium">Cursus est
+						primis euismod auctor sem nascetur est laoreet sagittis dui montes
+						suscipit tristique lorem potenti.</span>
+					<div class="EmptyBox10"></div>
+					<p:button value="Load App" styleClass="RedButton" />
+				</div>
+			</div> 
+			<div class="Container100 Responsive50">
+				<div class="Card ui-fluid">
+					<i class="icon-qq Cyan Fs40 Fleft MarRight10"></i> <span
+						class="Cyan Fs20 FontDosisSemiBold">Atlas Mobile <br />
+						Object Reporter
+					</span>
+					<div class="EmptyBox10"></div>
+					<span class="BoldLeaden Fs14 FontDosisMedium">Cursus est
+						primis euismod auctor sem nascetur est laoreet sagittis dui montes
+						suscipit tristique lorem potenti.</span>
+					<div class="EmptyBox10"></div>
+					<p:button value="Load App" styleClass="CyanButton" />
+				</div>
+			</div>
+			<div class="Container100 Responsive50">
+				<div class="Card ui-fluid">
+					<i class="icon-lab-flask Blue Fs40 Fleft MarRight10"></i> <span
+						class="Blue Fs20 FontDosisSemiBold">Atlas Development <br />
+						Labs
+					</span>
+					<div class="EmptyBox10"></div>
+					<span class="BoldLeaden Fs14 FontDosisMedium">Cursus est
+						primis euismod auctor sem nascetur est laoreet sagittis dui montes
+						suscipit tristique lorem potenti.</span>
+					<div class="EmptyBox10"></div>
+					<p:button value="Load App" styleClass="BlueButton" />
+				</div>
+			</div>-->
+		</div>
+
+		<!-- Center Column -->
+		<div class="Container50 NoPadding Responsive50">
+			<div class="Container100">
+				<div class="Card Flex FlexWrap">
+					<h:form styleClass="loginformstyle">
+						<p:outputPanel id="landingpageoutputpanel"
+							styleClass="width100percent">
+							<h:panelGrid id="tutorlistformpanelgrid">
+								<p:row>
+									<c:choose>
+										<c:when
+											test="#{fn:length(tutorController.tutorSearch.fetchedTutorList) gt 0 and tutorController.type eq 'tutors'}">
+											<ui:include src="/views/tutor/dashboardtutorlistform.xhtml"></ui:include>
+										</c:when>
+										<c:when test="#{tutorController.type eq 'tutor'}">
+											<ui:include src="/views/tutor/dashboardtutorindividualform.xhtml"></ui:include>
+										</c:when>
+										<c:otherwise>
+											<c:choose>
+												<c:when
+													test="#{fn:length(studentController.studentSearch.fetchedStudentList) gt 0 and studentController.type eq 'students'}">
+													<ui:include src="/views/student/studentlistform.xhtml"></ui:include>
+												</c:when>
+												<c:when test="#{studentController.type eq 'student'}">
+													<ui:include
+														src="/views/student/studentindividualform.xhtml"></ui:include>
+												</c:when>
+											</c:choose>
+										</c:otherwise>
+									</c:choose>
+								</p:row>
+								<p:row>
+									<h:outputText value="Future tutors" />
+								</p:row>
+							</h:panelGrid>
+						</p:outputPanel>
+					</h:form>
+				</div>
+			</div>
+			<div class="Container100 Responsive100">
+				<div class="Card">
+					<div class="CardBigTopic">
+						<i class="icon-stopwatch Fleft MarRight10 Fs28"></i> Tutor Search
+						By Subject
+					</div>
+					<h:inputHidden id="hiddenNavigation"
+						value="#{tutorController.hiddenURL}" />
+					<p:remoteCommand name="hiddenNavigationCmd"
+						process="hiddenNavigation,@this"
+						actionListener="#{tutorController.populateNavigationURL()}"
+						update="@([id$=landingpageoutputpanel])" />
+					<p:panelGrid columns="3" styleClass="ui-panelgrid-blank" style="background-color: #F0F8FF !important;">
+						<c:forEach items="#{tutorController.tutorSearch.subjectList}"
+							var="subject">
+							<p:column>
+								<p:commandLink
+									action="#{tutorController.selectTutorBySubject(subject)}"
+									oncomplete="handleComplete('#{subject.name}')"
+									update="@([id$=landingpageoutputpanel])" ajax="true">
+									<h:outputText value="#{subject.name}" />
+								</p:commandLink>
+							</p:column>
+						</c:forEach>
+					</p:panelGrid>
+					<div class="Container100 Responsive100">
+						<div class="Card SoftGrayBack Zoom1point05x">
+							 <ui:include src="/views/tutor/recentlyaddedtutors.xhtml"></ui:include> 
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 			<div class="Container100">
+				<div class="Card">
+					<div class="CardBigTopic">
+						<i class="icon-stopwatch Fleft MarRight10 Fs28"></i> Atlas Remote
+						API - Realtime Control Panel
+					</div>
+					<div class="Separator"></div>
+					<h:graphicImage name="images/chart3.svg" library="atlas-layout"
+						styleClass="Wid100" />
+
+					<div class="Container50 Responsive100">
+						<div class="Card SoftGrayBack">
+							<span class="DispBlock FontDosisSemiBold Fs16 BoldLeaden">Realtime
+								Server Status</span>
+							<div class="EmptyBox10"></div>
+							<h:graphicImage name="images/chart.svg" library="atlas-layout"
+								styleClass="Wid100" />
+							<div class="EmptyBox10"></div>
+							<p:commandButton value="Details" icon="fa fa-envelope"
+								styleClass="GreenButton Fleft Fs14 White" />
+							<p:commandButton icon="fa fa-share-alt"
+								styleClass="RedButton Fright Fs16 White" />
+							<p:commandButton icon="fa fa-cog"
+								styleClass="OrangeButton Fright Fs16 White" />
+						</div>
+					</div>
+					<div class="Container50 Responsive100">
+						<div class="Card SoftGrayBack">
+							<span class="DispBlock FontDosisSemiBold Fs16 BoldLeaden">Realtime
+								Connection Status</span>
+							<div class="EmptyBox10"></div>
+							<h:graphicImage name="images/chart2.svg" library="atlas-layout"
+								styleClass="Wid100" />
+							<div class="EmptyBox10"></div>
+							<p:commandButton value="Details" icon="fa fa-envelope"
+								styleClass="GreenButton Fleft Fs14 White" />
+							<p:commandButton icon="fa fa-share-alt"
+								styleClass="RedButton Fright Fs16 White" />
+							<p:commandButton icon="fa fa-cog"
+								styleClass="OrangeButton Fright Fs16 White" />
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+
+		<!-- Right Column -->
+		<div class="Container30 NoPadding Responsive50">
+
+			<div class="Container100">
+				<div class="Card ui-fluid">
+					<p:commandLink
+						action="#{landingPageController.navigateToTutorSignup()}"
+						ajax="true">
+						<p:graphicImage library="default" name="images/tutorsignup.png" />
+					</p:commandLink>
+				</div>
+			</div>
+
+			<div class="Container100">
+				<div class="Card ui-fluid">
+					<p:commandLink
+						action="#{landingPageController.navigateToStudentSignup()}"
+						ajax="true">
+						<p:graphicImage library="default" name="images/studentsignup.png" />
+					</p:commandLink>
+				</div>
+			</div>
+
+			<div class="Container100">
+				<div class="Card">
+					
+					<div class="Container100 Responsive100">
+						<div class="Card SoftGrayBack Zoom1point05x">
+							<h:outputText value="Other information" />
+						</div>
+					</div>
+<!-- 					<div class="Container100 Responsive100">
+						<div class="Card SoftGrayBack Zoom1point05x">
+							<span class="Fs14 FontDosisRegular">Cursus est primis
+								euismod auctor sem nascetur est laoreet sagittis lorem potenti.
+								<br /> <br /> <span class="FontDosisSemiBold Blue">@luke</span>
+							</span>
+							<div class="EmptyBox5"></div>
+							<p:commandButton icon="fa fa-share-alt"
+								styleClass="BlueButton Fright Fs16 White" />
+							<p:commandButton icon="fa fa-cog"
+								styleClass="OrangeButton Fright Fs16 White" />
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</ui:define>
+
+</ui:composition>
