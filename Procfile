@@ -1,1 +1,1 @@
-web: target/*.war -Dhttp.port=${PORT} ${JAVA_OPTS} -DapplyEvolutions.default=true
+web: java $JAVA_OPTS -jar ./target/dependency/jetty-runner.jar --port $PORT ./target/*.war
