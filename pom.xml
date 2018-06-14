@@ -20,7 +20,7 @@
 	<repositories>
 		<repository>
 			<id>prime-repo</id>
-			<name>Prime Repo</name>
+			<name>PrimeFaces Maven Repository</name>
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>
@@ -241,7 +241,7 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.3</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
