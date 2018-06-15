@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 
 /**
  * 
@@ -31,11 +32,13 @@ public class MongoDBConfig {
 	public @Bean MongoDbFactory mongoDbFactory() throws Exception {
 
 		Properties prop = fetchConfigProperties();
-		String host = prop.getProperty("mongodb.host");
-		int port = Integer.parseInt(prop.getProperty("mongodb.port"));
+		/*String host = prop.getProperty("mongodb.host");
+		int port = Integer.parseInt(prop.getProperty("mongodb.port"));*/
+		MongoClientURI uri = new MongoClientURI(
+			    "mongodb://abhi15:abhishek15@ds261570.mlab.com:61570/adsmobo");
 		String database = prop.getProperty("mongodb.db");
 
-		return new SimpleMongoDbFactory(new MongoClient(host, port), database);
+		return new SimpleMongoDbFactory(new MongoClient(uri), database);
 	}
 
 	public @Bean MongoTemplate mongoTemplate() throws Exception {
