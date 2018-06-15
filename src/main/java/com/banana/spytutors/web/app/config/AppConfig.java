@@ -17,11 +17,7 @@ import com.banana.spytutors.web.service.RefDataServiceImpl;
 import com.banana.spytutors.web.service.TutorService;
 import com.banana.spytutors.web.service.TutorServiceImpl;
 
-/**
- * 
- * @author ANKEM
- *
- */
+
 
 @Configuration
 @ComponentScan({"com.banana.spytutors.web","com.banana.spytutors.data"})
@@ -33,11 +29,6 @@ public class AppConfig {
 	@Bean
 	public RefDataService refDataService(){
 		return new RefDataServiceImpl();
-	}
-	
-	@Bean
-	public CascadingMongoEventListener cascadingMongoEventListener() {
-	    return new CascadingMongoEventListener();
 	}
 	
 	@Bean
